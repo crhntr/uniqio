@@ -19,10 +19,10 @@ func Lines(w io.Writer, r io.Reader) error {
 	for {
 		line, err := rd.ReadString('\n')
 		if err != nil {
-			if err != io.EOF {
-				return err
+			if err == io.EOF {
+				return nil
 			}
-			return nil
+			return err
 		}
 
 		_, ok := lines[line]
