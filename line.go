@@ -5,6 +5,9 @@ import (
 	"io"
 )
 
+// Lines reads from r and only prints the line to w if
+// it has not seen that line before. It uses '\n' as the delimiter
+// so it may not work where a different line delimiter is expected.
 func Lines(w io.Writer, r io.Reader) error {
 	var rd *bufio.Reader
 
